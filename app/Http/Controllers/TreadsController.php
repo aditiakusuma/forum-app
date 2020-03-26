@@ -7,11 +7,12 @@ use Illuminate\Http\Request;
 
 class TreadsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct()
+    {
+        //hanya bisa dilakukan ketika login
+        $this->middleware('auth')->except(['index','show']);
+    }
+
     public function index()
     {
         $treads = Tread::latest()->get();
@@ -26,7 +27,7 @@ class TreadsController extends Controller
      */
     public function create()
     {
-        //
+        return view('treads.create');
     }
 
     /**
@@ -37,7 +38,13 @@ class TreadsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tread = Tread::create([
+            'user_id' => auth()->id(),
+            'title' => request('title'),
+            'body' => request('body')
+        ]);
+        
+        return redirect($tread->path());
     }
 
     /**

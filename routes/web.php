@@ -20,6 +20,14 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/treads', 'TreadsController@index');
-Route::get('/treads/{tread}', 'TreadsController@show');
+// Route::get('/treads', 'TreadsController@index');
+// Route::post('/treads', 'TreadsController@store');
+// Route::get('/treads/create', 'TreadsController@create');
+// Route::get('/treads/{tread}', 'TreadsController@show');
+
+// diganti denga satu route berikut
+
+Route::resource('treads', 'TreadsController');
+
+
 Route::post('/treads/{tread}/replies', 'RepliesController@store');
