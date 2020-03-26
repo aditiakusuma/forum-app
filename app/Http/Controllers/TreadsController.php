@@ -40,6 +40,7 @@ class TreadsController extends Controller
     {
         $tread = Tread::create([
             'user_id' => auth()->id(),
+            'chanel_id' => request('chanel_id'),
             'title' => request('title'),
             'body' => request('body')
         ]);
@@ -53,7 +54,7 @@ class TreadsController extends Controller
      * @param  \App\Tread  $tread
      * @return \Illuminate\Http\Response
      */
-    public function show(Tread $tread)
+    public function show($chanelId, Tread $tread)
     {
         return view('treads.show', compact('tread'));
     }

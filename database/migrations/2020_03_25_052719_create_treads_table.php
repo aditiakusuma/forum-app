@@ -15,7 +15,8 @@ class CreateTreadsTable extends Migration
     {
         Schema::create('treads', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
+            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('chanel_id');
             $table->string('title');
             $table->text('body');
             $table->timestamps();

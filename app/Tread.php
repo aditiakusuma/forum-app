@@ -10,7 +10,9 @@ class Tread extends Model
 
     public function path() 
     {
-        return '/treads/'. $this->id;
+        //return '/treads/'.$this->chanel->slug.'/'.$this->id;
+        //diubah menjadi
+        return "/treads/{$this->chanel->slug}/{$this->id}";
     }
 
     public function replies()
@@ -19,6 +21,12 @@ class Tread extends Model
     }
 
     
+    public function chanel()
+    {
+        return $this->belongsTo(Chanel::class);
+    }
+    
+
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -27,6 +35,5 @@ class Tread extends Model
     public function addReply($reply)
     {
         $this->replies()->create($reply);
-
     }
 }

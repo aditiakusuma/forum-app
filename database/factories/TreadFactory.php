@@ -23,6 +23,9 @@ $factory->define(Tread::class, function (Faker $faker) {
         'user_id' => function () {
             return factory('App\User')->create()->id;
         },
+        'chanel_id' => function () {
+            return factory('App\Chanel')->create()->id;
+        },
         'title' => $faker->sentence,
         'body' => $faker->paragraph
     ];
