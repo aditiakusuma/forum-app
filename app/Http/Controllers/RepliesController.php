@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Tread;
+use App\Chanel;
 
 class RepliesController extends Controller
 {
@@ -13,15 +14,14 @@ class RepliesController extends Controller
         $this->middleware('auth');
     }
 
-    public function store($chanelId, Tread $tread)
+    public function store($chanelId,Tread $tread)
     {
         $tread->addReply([
             'body' => request('body'),
             'user_id' => auth()->id()
             ]);
         
-        
-        return redirect('/treads/'.$tread->id);
+        return redirect('/treads/'.$chanelId->name.'/'.$tread->id);
         
     }
 }

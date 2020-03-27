@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Tread;
+use App\Chanel;
 use Illuminate\Http\Request;
 
 class TreadsController extends Controller

@@ -6,5 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Chanel extends Model
 {
-    //
+    
+    public function tread()
+    {
+        
+    }
+    
 }

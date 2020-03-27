@@ -19,15 +19,15 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/home', 'HomeController@index');
 Route::get('/treads', 'TreadsController@index');
-Route::post('/treads', 'TreadsController@store');
 Route::get('/treads/create', 'TreadsController@create');
 Route::get('/treads/{chanel}/{tread}', 'TreadsController@show');
-
+Route::post('/treads', 'TreadsController@store');
 // diganti denga satu route berikut
-Route::get('treads', 'TreadsController@index');
-Route::resource('treads', 'TreadsController');
+// Route::get('treads', 'TreadsController@index');
+// Route::resource('treads', 'TreadsController');
 
 Route::post('/treads/{chanel}/{tread}/replies', 'RepliesController@store');
